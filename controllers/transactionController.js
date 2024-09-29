@@ -1,3 +1,4 @@
+const Notification = require("../models/NotificationModel");
 const Transaction = require("../models/transactionModel");
 const User = require("../models/userModel");
 const { formatNumber } = require("../utils/helpers");

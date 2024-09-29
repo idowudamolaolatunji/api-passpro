@@ -209,10 +209,7 @@ exports.updateMe = async function (req, res) {
         res.status(200).json({
             status: "success",
             message: 'Profile Updated!',
-            data: {
-                user: updatedUser,
-                newNotification
-            }
+            data: { user: updatedUser }
         })
 
     } catch(err) {
