@@ -33,7 +33,7 @@ connectDB();
 //////////////////////////////////////////////
 //// SERVER CONFIGURATION ////
 //////////////////////////////////////////////
-server.listen(PORT, 'localhost', function() {
+server.listen(PORT, '0.0.0.0', function() {
     console.log(`Server running on port ${PORT}...`);
 });
 
