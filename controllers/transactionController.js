@@ -1,4 +1,4 @@
-const Notification = require("../models/NotificationModel");
+// const Notification = require("../models/NotificationModel");
 const Transaction = require("../models/transactionModel");
 const User = require("../models/userModel");
 const { formatNumber } = require("../utils/helpers");
@@ -47,11 +47,11 @@ exports.approvalWithdrawalRequest = async (req, res) => {
         withdrawalRequest.status = 'success';
         await withdrawalRequest.save({});
 
-		await Notification.create({
-			user: user.id,
-			title: 'New Approved Withdrawal',
-			content: `A withdrawal of ₦${formatNumber(withdrawalRequest.amount)} is being sent to your bank!`
-		});
+		// await Notification.create({
+		// 	user: user.id,
+		// 	title: 'New Approved Withdrawal',
+		// 	content: `A withdrawal of ₦${formatNumber(withdrawalRequest.amount)} is being sent to your bank!`
+		// });
 
         res.status(200).json({
             status: 'success',

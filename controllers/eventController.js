@@ -1,7 +1,7 @@
 const sharp = require('sharp');
 const EventCategory = require('../models/eventCategoryModel');
 const Event = require('../models/eventModel');
-const Notification = require('../models/NotificationModel');
+// const Notification = require('../models/NotificationModel');
 // const { io } = require('../utils/socket');
 
 
@@ -70,11 +70,11 @@ exports.createEvent = async function (req, res) {
 			{ runValidators: true, new: true }
 		);
 
-		await Notification.create({
-			user: req.user._id,
-			title: 'New Event Created',
-			content: `You just created a new event for ${newEvent.name}, commencing on the ${newEvent.details.date}`,
-		})
+		// await Notification.create({
+		// 	user: req.user._id,
+		// 	title: 'New Event Created',
+		// 	content: `You just created a new event for ${newEvent.name}, commencing on the ${newEvent.details.date}`,
+		// })
 
         res.status(201).json({
             status: 'success',
@@ -285,11 +285,11 @@ exports.updateEventById = async function(req, res) {
 			{ _id: eventId }, {...req.body, details: { venue, date, time }}, { runValidators: true, new: true }
 		);
 
-		await Notification.create({
-			user: req.user._id,
-			title: 'Event Updated',
-			content: `You Updated the "${event.name}" event`,
-		})
+		// await Notification.create({
+		// 	user: req.user._id,
+		// 	title: 'Event Updated',
+		// 	content: `You Updated the "${event.name}" event`,
+		// })
 
 		res.status(200).json({
 			status: 'success',
@@ -322,11 +322,11 @@ exports.deleteEventById = async function(req, res) {
 			{ runValidators: true, new: true }
 		);
 
-		await Notification.create({
-			user: req.user._id,
-			title: 'Event Deleted',
-			content: `You Deleted the "${event.name}" event`,
-		});
+		// await Notification.create({
+		// 	user: req.user._id,
+		// 	title: 'Event Deleted',
+		// 	content: `You Deleted the "${event.name}" event`,
+		// });
 
 		res.status(200).json({
 			status: 'success',

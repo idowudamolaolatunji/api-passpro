@@ -1,4 +1,4 @@
-const Notification = require("../models/NotificationModel");
+// const Notification = require("../models/NotificationModel");
 const User = require("../models/userModel");
 const Wallet = require("../models/walletModel");
 const { formatNumber } = require("../utils/helpers");
@@ -57,11 +57,11 @@ exports.walletDeposit = async (req, res) => {
 			purpose: "deposit",
 		});
 
-		await Notification.create({
-			user: user.id,
-			title: 'New Deposit',
-			content: `A deposit of ₦${formatNumber(amount)} was made!`
-		});
+		// await Notification.create({
+		// 	user: user.id,
+		// 	title: 'New Deposit',
+		// 	content: `A deposit of ₦${formatNumber(amount)} was made!`
+		// });
 
 		res.status(200).json({
 			status: "success",
@@ -116,11 +116,11 @@ exports.walletWithdrawalRequest = async (req, res) => {
 			purpose: "withdrawal",
 		});
 
-		const newNotification = await Notification.create({
-			user: user.id,
-			title: 'New Withdrawal',
-			content: `A withdrawal of ₦${formatNumber(amount)} was made!`
-		});
+		// await Notification.create({
+		// 	user: user.id,
+		// 	title: 'New Withdrawal',
+		// 	content: `A withdrawal of ₦${formatNumber(amount)} was made!`
+		// });
 
 		res.status(200).json({
 			status: 'success',
