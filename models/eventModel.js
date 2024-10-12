@@ -10,6 +10,7 @@ const eventSchema = new mongoose.Schema({
     name:  {
         type: String,
         required: true,
+        unique: false,
     },
     description: {
         type: String,
@@ -20,6 +21,11 @@ const eventSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true
+    },
+    type: {
+        type: String,
+        enum: ['free', 'paid'],
+        default: 'paid'
     },
     details: {
         venue: {

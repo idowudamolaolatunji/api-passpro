@@ -107,7 +107,7 @@ exports.updateUserById = async function(req, res) {
 exports.uploadProfilePicture = async function (req, res) {
     try {
         let image;
-        if(req.file) image = req.file.filename;
+        if(req.file) image = "<BASE_URL>/assets/users/" + req.file.filename;
 
         const updated = await User.findByIdAndUpdate(req.user._id, { image }, {
             new: true,

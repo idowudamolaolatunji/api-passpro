@@ -112,10 +112,9 @@ exports.uploadEventImages = async function (req, res) {
 					.jpeg({ quality: 80 })
 					.toFile(`public/assets/events/${fileName}`)
 				;
-				images.push(fileName);
+				images.push(`<BASE_URL>/assets/users/${fileName}`);
 			}
 		}
-
 		event.images = images;
 		await event.save({});
 
